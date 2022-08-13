@@ -18,3 +18,9 @@ class email :
         if result is None:
             raise InvalidData("Debe de contener un email valido","2")
         self.value = value
+class id:
+    def __init__(self,value: str) -> None: 
+        if value is None:
+            raise InvalidData("La propiedad id es requerida","3")
+        self.value = value
+

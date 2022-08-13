@@ -2,6 +2,7 @@ from zpy.utils.objects import ZObjectModel, Str
 
 
 class CustomerRequest(ZObjectModel):
+     id = Str()
      name = Str(required=True)
      email = Str(required=True)
     

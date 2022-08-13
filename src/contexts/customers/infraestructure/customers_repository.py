@@ -49,3 +49,18 @@ class AwesomeCustomersRepository(CustomersRepository):
         finally:
             ...
     
+    def customer_update(self, cus: CustomerRequest) -> Any:
+        try:
+            f = open('data.json')
+            data = json.load(f)               
+            f.close()
+            for item in data:
+                if item['id'] == cus.id:
+                   item['name'] = cus.name
+                   item['email'] = cus.email                                 
+            with open('data.json', 'w') as json_file:
+                json.dump(data, json_file)
+           
+            return 'ok'
+        finally:
+            ...
