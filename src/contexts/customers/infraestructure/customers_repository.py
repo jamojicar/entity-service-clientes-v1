@@ -15,6 +15,7 @@ class AwesomeCustomersRepository(CustomersRepository):
             f = open('data.json')
             data = json.load(f)
             f.close()
+            data.reverse()
             customers = {"customers":data}
             return customers
         finally:
@@ -38,14 +39,16 @@ class AwesomeCustomersRepository(CustomersRepository):
         try:
             f = open('data.json')
             data = json.load(f)   
-            f.close()         
+            f.close()  
+            cusArr = []        
             item = {"id": str(uuid.uuid1()),"name":cus.name,"email":cus.email}
             data.append(item)
-            
+            cusArr.append(item)  
+            customers = {"customers":cusArr}
             with open('data.json', 'w') as json_file:
                 json.dump(data, json_file)
            
-            return 'ok'
+            return customers
         finally:
             ...
     
@@ -58,6 +61,21 @@ class AwesomeCustomersRepository(CustomersRepository):
                 if item['id'] == cus.id:
                    item['name'] = cus.name
                    item['email'] = cus.email                                 
+            with open('data.json', 'w') as json_file:
+                json.dump(data, json_file)
+           
+            return 'ok'
+        finally:
+            ...
+
+    def customer_delete(self, cus_id) -> Any:
+        try:
+            f = open('data.json')
+            data = json.load(f)               
+            f.close()
+            for item in data:
+                if item['id'] == cus_id:
+                  data.remove(item)                                 
             with open('data.json', 'w') as json_file:
                 json.dump(data, json_file)
            

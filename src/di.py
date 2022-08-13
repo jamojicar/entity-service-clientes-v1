@@ -15,6 +15,7 @@ from contexts.customers.application.customer_detail import customer_detail
 from contexts.customers.application.customer_add import customer_add
 
 from contexts.customers.application.customer_update import customer_update
+from contexts.customers.application.customer_delete import customer_delete
 
 repository: CustomersRepository = AwesomeCustomersRepository()
 # Setup UseCases
@@ -24,6 +25,7 @@ customer_list_uc: UseCase[Any, None] = customer_list(repository)
 customer_detail_uc: UseCase[Any, Any] = customer_detail(repository)
 customer_add_uc: UseCase[Any, Any] = customer_add(repository)
 customer_update_uc: UseCase[Any, Any] = customer_update(repository)
+customer_delete_uc: UseCase[Any, Any] = customer_delete(repository)
 print("🚀 Dependencies loaded successfully...")
 
 
