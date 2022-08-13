@@ -17,3 +17,20 @@ class AwesomeCustomersRepository(CustomersRepository):
             return customers
         finally:
             ...
+
+    def customer_detail(self, cus_id: Any) -> Any:
+        try:
+            f = open('data.json')
+            data = json.load(f)
+            f.close()
+            cus = []            
+            for item in data:
+                if item['id'] == cus_id:                                   
+                    cus.append(item)                    
+            customers = {"customers":cus}            
+            return customers
+        finally:
+            ...
+
+
+    

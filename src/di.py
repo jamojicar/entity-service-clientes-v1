@@ -8,10 +8,15 @@ from contexts.customers.domain.repositories import CustomersRepository
 from contexts.customers.infraestructure.customers_repository import AwesomeCustomersRepository
 from contexts.customers.application.customer_list import customer_list
 
+# Import use case of customers context 📦
+from contexts.customers.application.customer_detail import customer_detail
 repository: CustomersRepository = AwesomeCustomersRepository()
 
 
 # Setup UseCases
 
 customer_list_uc: UseCase[Any, None] = customer_list(repository)
+# Creation instance of use cases of the context: customers 📦
+customer_detail_uc: UseCase[Any, Any] = customer_detail(repository)
 print("🚀 Dependencies loaded successfully...")
+

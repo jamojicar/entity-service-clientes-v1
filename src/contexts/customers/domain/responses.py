@@ -10,9 +10,10 @@ class Customer(ZObjectModel):
     name = Str()
     email =Str()
 
-class CustomerResponse(ZObjectModel, SuccessResponse):
+class CustomersResponse(ZObjectModel, SuccessResponse):
     customers = NestedModel(nested=Customer, many=True, load_default=[]) 
 
     def __init__(self, **kwargs):
         ZObjectModel.__init__(self, use_native_dumps=True, **kwargs)
         SuccessResponse.__init__(self, HttpStatus.SUCCESS) 
+

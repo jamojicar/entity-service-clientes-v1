@@ -14,3 +14,13 @@ class CustomersRepository(ABC):
         :return: result
         """
         ...
+
+    @abstractmethod
+    def customer_detail(self, data: Any) -> Any:
+        """
+        Description
+
+        :param data: input data
+        :return: result
+        """
+        ...
