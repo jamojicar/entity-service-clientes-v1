@@ -85,3 +85,13 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 ## Authors
 
 - **jamojicar 2022** - _[Backend Developer](https://www.linkedin.com/in/jamojicar/)_
+
+## Docker
+Create image
+- docker build -t miapp:1 .
+
+Create container
+- docker create -p5000:5000 --name exam miapp:1
+
+Start container
+- docker start exam

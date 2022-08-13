@@ -24,8 +24,7 @@ def get_customers_by_id(cus_id:str):
 @app.route("/customers/add", methods=["POST"])
 @response_builder()
 def add_customers():
-    cus, _  = parse_request(request.json, CustomerRequest)
-    #customer_add_uc.execute(cus)
+    cus, _  = parse_request(request.json, CustomerRequest)   
     return CustomersResponse(**customer_add_uc.execute(cus))  
 
 @app.route("/customers/<cus_id>", methods=["PATCH"])
